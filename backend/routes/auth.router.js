@@ -81,6 +81,15 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.route('/logout').get(async (req, res) => {
+  req.session.destroy((err) => {
+    if (err) return res.sendStatus(500);
+    res.clearCookie(req.app.get('cookieName'));
+
+    return res.sendStatus(200);
+  });
+});
+
 // router.get('/user', checkAuth, async (req, res) => {
 //     try {
 //         const user = await User.findOne({ _id: req.user.id });
