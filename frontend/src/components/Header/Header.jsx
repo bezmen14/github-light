@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeUser } from '../../redux/actionCreators/userAC';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {
   Navbar,
@@ -11,18 +11,14 @@ import {
 } from 'reactstrap';
 
 function Header() {
-  console.log('1--->', localStorage);
-  console.log('2--->', localStorage.name);
-
   const user = useSelector((state) => state.user);
-
   const history = useHistory();
   const dispatch = useDispatch();
   const HomeButton = () => {
     history.push('/');
   };
 
-  const handleLogout = () => {
+  const handlerLogout = () => {
     dispatch(removeUser())
     HomeButton()
   }
@@ -42,7 +38,7 @@ function Header() {
 
           {localStorage.name ? (
             <div>
-              <Link onClick={handleLogout}>
+              <Link onClick={handlerLogout}>
                 Logout
               </Link>
               <NavbarText>{`Hello, ${localStorage.name}!`}</NavbarText>

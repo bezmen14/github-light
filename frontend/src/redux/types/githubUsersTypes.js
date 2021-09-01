@@ -1,0 +1,1 @@
+export const GET_GITHUB_USERS = 'GET_GITHUB_USERS';

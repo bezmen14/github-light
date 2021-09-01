@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import UserList from '../UserList/UserList';
 
 
 function Main () {
 
   return(
-    <div>Hello</div>
+    <UserList/>
   )
 }
 export default Main;

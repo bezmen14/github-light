@@ -6,7 +6,7 @@
 /backend
 /frontend
 
-запустить команду
+запустить команды
 
 ```
 npm install
