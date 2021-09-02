@@ -1,25 +1,32 @@
 import React, { useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getProfile } from "../../redux/actionCreators/profileAC";
 import { useDispatch, useSelector } from "react-redux";
 import Repos from "../Repos/Repos";
+import Contributions from "../Contributions/Contributions";
+import { getContributions } from "../../redux/actionCreators/contributionsAC";
+import { NavItem } from "reactstrap";
 
 function UserFullCard() {
   const { login } = useParams();
-  console.log(login);
+
 
   const profileCard = useSelector(state => state.profile);
-  console.log(profileCard);
+
 
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(getContributions(login))
     dispatch(getProfile(login))
   }, [])
 
   return (
 
     <React.Fragment>
+      <NavItem>
+        <Link to={`/profile/${profileCard.login}/contributions`}>Contributions</Link>
+      </NavItem>
       <div className='card grid-2'>
         <div className='all-center'>
           <img
@@ -60,7 +67,7 @@ function UserFullCard() {
               {profileCard.blog && (
                 <React.Fragment>
                   <strong> Website:</strong>{profileCard.blog}
-                  
+
                 </React.Fragment>
               )}
             </li>

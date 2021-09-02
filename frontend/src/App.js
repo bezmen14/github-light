@@ -10,6 +10,7 @@ import Main from './components/Main/Main';
 import SignIn from './components/SignIn/SignIn'
 import React from 'react';
 import UserFullCard from './components/UserFullCard/UserFullCard'
+import Contributions from './components/Contributions/Contributions';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <main className='main'>
           <Switch>
 
-          <Route exact path="/">
+            <Route exact path="/">
               <Main />
             </Route>
 
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route exact path="/profile/:login">
               <UserFullCard />
+            </Route>
+            <Route exact path="/profile/:login/contributions">
+              <Contributions />
             </Route>
           </Switch>
         </main>

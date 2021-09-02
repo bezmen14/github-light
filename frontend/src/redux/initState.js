@@ -4,6 +4,7 @@ const initState = {
   profile: {},
   repos: [],
   readme: {},
+  contributions: [],
 }
 
 export default initState
