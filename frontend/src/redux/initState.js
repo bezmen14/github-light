@@ -3,6 +3,7 @@ const initState = {
   githubUsers: [],
   profile: {},
   repos: [],
+  readme: {},
 }
 
 export default initState

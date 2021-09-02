@@ -5,6 +5,7 @@ import userReducer from "../reducers/userReducer";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import profileReducer from "../reducers/profileReducer";
 import reposReducer from "../reducers/reposReducer";
+import readmeReducer from "../reducers/readmeReducer";
 
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     githubUsers: githubUsersReducer,
     profile: profileReducer,
     repos: reposReducer,
+    readme: readmeReducer,
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

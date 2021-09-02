@@ -12,7 +12,7 @@ function UserListCard({ id, avatar, login, url }) {
           <p className="card-text">{login}</p>
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
-              <button type="button" className="btn btn-sm btn-outline-secondary"><Link to={`/profile/${login}`}>Profile</Link></button>
+              <button type="button" className="btn btn-sm btn-outline-secondary"><Link style={{ textDecoration: 'none', color: 'grey' }} to={`/profile/${login}`}>Profile</Link></button>
               <a className="btn btn-sm btn-outline-secondary" target='_blank' href={url} role="button">GitHub</a>
             </div>
             <small className="text-muted">id:{id}</small>

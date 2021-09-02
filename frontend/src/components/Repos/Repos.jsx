@@ -12,6 +12,7 @@ function Repos() {
   const profileRepos = useSelector(state => state.repos);
   console.log(profileRepos);
 
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -19,8 +20,10 @@ function Repos() {
   }, [])
 
   return (
-    <div className="list-group">
+    // <div className="list-group">
+    <div class="accordion" id="accordionExample">
       {profileRepos.map(el =>
+
         <RepoItem
           key={el.id}
           id={el.id}
@@ -28,9 +31,9 @@ function Repos() {
           url={el.html_url}
           description={el.description}
           language={el.language}
-        >
-
+          updated_at={el.updated_at}>
         </RepoItem>
+
       )}
     </div>
   )

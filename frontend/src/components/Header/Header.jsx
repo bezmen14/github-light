@@ -1,14 +1,13 @@
 import React, {  useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeUser } from '../../redux/actionCreators/userAC';
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import {
   Navbar,
   Nav,
   NavItem,
   NavbarText
 } from 'reactstrap';
+import { useHistory, Link } from 'react-router-dom';
 
 function Header() {
   const user = useSelector((state) => state.user);
@@ -38,7 +37,7 @@ function Header() {
 
           {localStorage.name ? (
             <div>
-              <Link onClick={handlerLogout}>
+              <Link to="/" onClick={handlerLogout}>
                 Logout
               </Link>
               <NavbarText>{`Hello, ${localStorage.name}!`}</NavbarText>

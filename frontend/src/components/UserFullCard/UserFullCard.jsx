@@ -38,7 +38,7 @@ function UserFullCard() {
               <p>{profileCard.bio}</p>
             </React.Fragment>
           )}
-          <a href={profileCard.html_url} className='btn btn-dark my-1'>
+          <a target='_blank' href={profileCard.html_url} className='btn btn-dark my-1'>
             Visit GitHub Profile
           </a>
           <ul>
@@ -59,7 +59,8 @@ function UserFullCard() {
             <li>
               {profileCard.blog && (
                 <React.Fragment>
-                  <strong>Website:</strong> {profileCard.blog}
+                  <strong> Website:</strong>{profileCard.blog}
+                  
                 </React.Fragment>
               )}
             </li>
@@ -67,13 +68,13 @@ function UserFullCard() {
         </div>
       </div>
       <div style={{ backgroundColor: 'black' }} className='card text-center'>
-        <div  className='badge badge-primary'>Followers: {profileCard.followers}</div>
+        <div className='badge badge-primary'>Followers: {profileCard.followers}</div>
         <div className='badge badge-success'>Following: {profileCard.following}</div>
         <div className='badge badge-light'>Public repos: {profileCard.public_repos}</div>
         <div className='badge badge-dark'>Public Gists: {profileCard.public_gists}</div>
       </div>
-				 <Repos  />
-       </React.Fragment>
+      <Repos />
+    </React.Fragment>
   )
 }
 

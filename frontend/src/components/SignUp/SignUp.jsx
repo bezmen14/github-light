@@ -2,9 +2,10 @@ import style from './SignUp.module.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styleContainer from '../Container/container.module.css'
-import { useHistory } from "react-router-dom";
 import { getFormUserData } from '../../redux/actionCreators/userAC';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 function SignUp() {
   const dispatch = useDispatch()
