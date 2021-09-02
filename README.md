@@ -2,16 +2,7 @@
 
 Запуск
 -----------
-В папке
 
-/frontend
-
-запустить команды
-
-```
-npm install
-npm start
-```
 В папке
 
 /backend
@@ -23,3 +14,15 @@ npm start
 ```
 npm install
 npm start
+```
+В папке
+
+/frontend
+
+запустить команды
+
+```
+npm install
+npm start
+```
+
