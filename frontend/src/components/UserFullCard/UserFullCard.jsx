@@ -22,66 +22,81 @@ function UserFullCard() {
   }, [])
 
   return (
-
     <React.Fragment>
-      <NavItem>
-        <Link to={`/profile/${profileCard.login}/contributions`}>Contributions</Link>
-      </NavItem>
-      <div className='card grid-2'>
-        <div className='all-center'>
-          <img
-            src={profileCard.avatar_url}
-            className='round-img'
-            style={{ width: '150px' }}
-            alt='avatar img'
-          />
-          <h1>{profileCard.name}</h1>
-          {profileCard.location && 'Location: ' + profileCard.location}
-        </div>
-        <div>
-          {profileCard.bio && (
-            <React.Fragment>
-              <h3>Bio</h3>
-              <p>{profileCard.bio}</p>
-            </React.Fragment>
-          )}
-          <a target='_blank' href={profileCard.html_url} className='btn btn-dark my-1'>
-            Visit GitHub Profile
-          </a>
-          <ul>
-            <li>
-              {profileCard.login && (
-                <React.Fragment>
-                  <strong>Username:</strong> {profileCard.login}
-                </React.Fragment>
-              )}
-            </li>
-            <li>
-              {profileCard.company && (
-                <React.Fragment>
-                  <strong>Company:</strong> {profileCard.company}
-                </React.Fragment>
-              )}
-            </li>
-            <li>
-              {profileCard.blog && (
-                <React.Fragment>
-                  <strong> Website:</strong>{profileCard.blog}
 
-                </React.Fragment>
-              )}
-            </li>
-          </ul>
+      <div className='d-flex justify-content-center'>
+        <div className='row mt-3'>
+          <div className='col-6'>
+            <div className='d-flex flex-column'>
+              <img
+                src={profileCard.avatar_url}
+                className='round-img mb-3'
+                style={{ width: '200px' }}
+                alt='avatar img'
+              />
+            </div>
+            <div >
+              <ul className="list-group text-start">
+                <li className="list-group-item">
+                  {profileCard.login && (
+                    <React.Fragment>
+                      <strong>Username:</strong> {profileCard.login}
+                    </React.Fragment>
+                  )}
+                </li>
+                <li className="list-group-item">
+                  {profileCard.company && (
+                    <React.Fragment>
+                      <strong>Company:</strong> {profileCard.company}
+                    </React.Fragment>
+                  )}
+                </li>
+                <li className="list-group-item">
+                  {profileCard.blog && (
+                    <React.Fragment>
+                      <strong>Website:</strong> {profileCard.blog}
+                    </React.Fragment>
+                  )}
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className='text-start mt-3'>
+                <div className='black badge-primary'>Followers: {profileCard.followers}</div>
+                <div className='black badge-success'>Following: {profileCard.following}</div>
+                <div className='black badge-light'>Public repos: {profileCard.public_repos}</div>
+                <div className='black badge-dark'>Public Gists: {profileCard.public_gists}</div>
+              </div>
+            </div>
+          </div>
+          <div className='col-6'>
+            <h1>{profileCard.name}</h1>
+            {profileCard.location && 'Location: ' + profileCard.location}
+            {profileCard.bio && (
+              <React.Fragment>
+                <h3>Bio</h3>
+                <p>{profileCard.bio}</p>
+              </React.Fragment>
+            )}
+            <a target='_blank' href={profileCard.html_url} className='btn btn-dark my-1 w-75'>
+              Visit GitHub Profile
+            </a>
+            <a style={{ color: 'white' }} className="btn btn-danger my-2 w-75">
+              <Link to={`/profile/${profileCard.login}/contributions`}>Contributions</Link>
+            </a>
+          </div>
         </div>
       </div>
-      <div style={{ backgroundColor: 'black' }} className='card text-center'>
-        <div className='badge badge-primary'>Followers: {profileCard.followers}</div>
-        <div className='badge badge-success'>Following: {profileCard.following}</div>
-        <div className='badge badge-light'>Public repos: {profileCard.public_repos}</div>
-        <div className='badge badge-dark'>Public Gists: {profileCard.public_gists}</div>
+      <div className='d-flex justify-content-center mt-3'>
+        <div className='w-50'>
+            <Repos />
+        </div>
+
       </div>
-      <Repos />
+
     </React.Fragment>
+
+
   )
 }
 

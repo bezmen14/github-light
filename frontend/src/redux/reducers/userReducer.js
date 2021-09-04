@@ -13,7 +13,7 @@ const userReducer = (state = {}, action) => {
       case REMOVE_USER:
       localStorage.removeItem('name');
       return {
-        ...state,
+        
       }
 
     default:

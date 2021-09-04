@@ -90,23 +90,6 @@ router.route('/logout').get(async (req, res) => {
   });
 });
 
-// router.get('/user', checkAuth, async (req, res) => {
-//     try {
-//         const user = await User.findOne({ _id: req.user.id });
-//         const token = jwt.sign({ id: user.id }, secretKey, { expiresIn: '1h' });
 
-//         return res.json({
-//             token,
-//             user: {
-//                 id: user._id,
-//                 email: user.email,
-//                 name: user.name,
-//             }
-//         });
-//     } catch (e) {
-//         console.log(e);
-//         res.send({ message: 'Server error' });
-//     }
-// });
 
 module.exports = router;

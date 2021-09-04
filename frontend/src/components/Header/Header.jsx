@@ -35,12 +35,12 @@ function Header() {
             <Link to="/">Home</Link>
           </NavItem>
 
-          {localStorage.name ? (
+          {user.name ? (
             <div>
               <Link to="/" onClick={handlerLogout}>
                 Logout
               </Link>
-              <NavbarText>{`Hello, ${localStorage.name}!`}</NavbarText>
+              <NavbarText>{`Hello, ${user.name}!`}</NavbarText>
             </div>
           ) : (
             <div>

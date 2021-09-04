@@ -26,7 +26,7 @@ function randomChar(length) {
 
 export const getRandomGithubUsers = () => async (dispatch) => {
   // const randomGithubUsers = await axios(`https://api.github.com/users?since=${randomInteger(1, 71730070)}&per_page=10`);
-  const randomGithubUsers = await axios(`https://api.github.com/search/users?q=${randomChar(1)}&per_page=9`);
+  const randomGithubUsers = await axios(`https://api.github.com/search/users?q=${randomChar(1)}&per_page=10`);
   console.log(randomGithubUsers.data.items);
   // console.log(randomGithubUsers.data);
 

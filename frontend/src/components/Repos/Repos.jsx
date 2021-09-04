@@ -20,22 +20,26 @@ function Repos() {
   }, [])
 
   return (
-    // <div className="list-group">
-    <div class="accordion" id="accordionExample">
-      {profileRepos.map(el =>
 
-        <RepoItem
-          key={el.id}
-          id={el.id}
-          name={el.name}
-          url={el.html_url}
-          description={el.description}
-          language={el.language}
-          updated_at={el.updated_at}>
-        </RepoItem>
+    <div className='row'>
+      <div className='col-12 '>
+      <div className="accordion w-100"  id="accordionExample">
+        {profileRepos.map(el =>
+          <RepoItem
+            key={el.id}
+            id={el.id}
+            name={el.name}
+            url={el.html_url}
+            description={el.description}
+            language={el.language}
+            updated_at={el.updated_at}>
+          </RepoItem>
+        )}
+      </div>
+      </div>
 
-      )}
     </div>
+
   )
 }
 

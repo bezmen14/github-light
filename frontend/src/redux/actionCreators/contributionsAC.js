@@ -1,5 +1,4 @@
 import { GET_PROFILE_CONTRIBUTIONS } from "../types/contributionsTypes";
-import axios from "axios";
 
 export function setContributions(value) {
   return {
@@ -10,7 +9,7 @@ export function setContributions(value) {
 
 export const getContributions = (login) => async (dispatch) => {
   const headers = {
-    'Authorization': `bearer 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`,
+    'Authorization': `bearer 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`,
   }
 
   const body = {
@@ -38,9 +37,12 @@ export const getContributions = (login) => async (dispatch) => {
 
   const response = await fetch('https://api.github.com/graphql', { method: 'POST', body: JSON.stringify(body), headers: headers })
   const data = await response.json()
-  const contributions = data.data.user.contributionsCollection.contributionCalendar.weeks.map((el) => el.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
-  console.log(contributions);
-  dispatch(setContributions(contributions))
+  try {
+    const contributions = data.data.user.contributionsCollection.contributionCalendar.weeks.map((el) => el.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
+    dispatch(setContributions(contributions))
+  } catch (error) {
+    console.log('error');
+  }
 }
 
 
