@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 function UserListCard({ id, avatar, login, url }) {
 
   return (

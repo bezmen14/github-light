@@ -10,7 +10,5 @@ export function setProfile(value) {
 
 export const getProfile = (login) => async (dispatch) => {
   const profile = await axios.get(`https://api.github.com/users/${login}`);
-  console.log(profile.data);
-  dispatch(setProfile(profile.data))   
+  dispatch(setProfile(profile.data))
 }
-

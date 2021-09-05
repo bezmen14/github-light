@@ -10,10 +10,11 @@ const userReducer = (state = {}, action) => {
           ...action.payload.user,
         }
       }
-      case REMOVE_USER:
+      
+    case REMOVE_USER:
       localStorage.removeItem('name');
       return {
-        
+
       }
 
     default:

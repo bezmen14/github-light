@@ -1,11 +1,8 @@
-import style from './SignUp.module.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import styleContainer from '../Container/container.module.css'
 import { getFormUserData } from '../../redux/actionCreators/userAC';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
 
 function SignUp() {
   const dispatch = useDispatch()
@@ -15,7 +12,6 @@ function SignUp() {
   const [inputEmail, setInputEmail] = useState('')
   const [inputPassword, setInputPassword] = useState('')
   const user = useSelector(state => state.user)
-  console.log('юзер---->', user);
 
   const inputHandlerName = (event) => {
     setInputUser(event.target.value)
@@ -26,7 +22,6 @@ function SignUp() {
   const inputHandlerPassword = (event) => {
     setInputPassword(event.target.value)
   }
-
 
   const HomeButton = () => {
     history.push("/");
@@ -41,33 +36,26 @@ function SignUp() {
   }
   useEffect(() => {
     if (user.id) {
-
       localStorage.setItem('name', user.name)
-
       HomeButton()
     }
   }, [user]);
 
-
-
-
   return (
-    <React.Fragment>
-      <div className={styleContainer.container + ' ' + style.containerSignUp}>
-        <div className={style.wrapperEntranceUser}>
-          <div className={style.HeaderformTop}>
-            Account registration
-          </div>
-          <form onSubmit={submitHandler} className={style.Headerform} action="">
-            <input required onChange={inputHandlerName} className={style.inputHeaderForm} type="text" name="name" placeholder="Введите имя" />
-            <input required onChange={inputHandlerEmail} className={style.inputHeaderForm} type="email" name="email" placeholder="Введите email" />
-            <input required onChange={inputHandlerPassword} className={style.inputHeaderForm} type="password" name="password" placeholder="Введите password" />
-            <button className={style.HeaderFormButton} type="submit">Зарегистрироваться</button>
-          </form>
+    <div className='d-flex justify-content-center'>
+      <form className='w-25' onSubmit={submitHandler}>
+        <div className="mb-3 mt-3">
+          <input type="text" onChange={inputHandlerName} className="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='login' />
         </div>
-      </div>
-    </React.Fragment>
-
+        <div className="mb-3 mt-3">
+          <input type="email" onChange={inputHandlerEmail} className="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email' />
+        </div>
+        <div className="mb-3">
+          <input type="password" onChange={inputHandlerPassword} className="form-control" name="password" id="exampleInputPassword1" placeholder="password" />
+        </div>
+        <button type="submit" className="btn btn-secondary">Sign Up</button>
+      </form>
+    </div>
   )
 }
 

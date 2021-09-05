@@ -1,16 +1,13 @@
 import React from "react";
 import { Accordion } from 'react-bootstrap';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getReadme } from "../../redux/actionCreators/readmeAC";
 import Readme from "../Readme/Readme";
 
 function RepoItem({ id, name, url, description, language, updated_at }) {
   const dispatch = useDispatch()
-
-
   const { login } = useParams();
-
 
   const getRepoName = () => {
     dispatch(getReadme(login, name))

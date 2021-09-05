@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Readme({}) {
+function Readme({ }) {
   const repo = useSelector(state => state.readme);
 
   return (

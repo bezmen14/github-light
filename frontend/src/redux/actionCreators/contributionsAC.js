@@ -7,9 +7,10 @@ export function setContributions(value) {
   }
 }
 
+const apiToken = 'bearer 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'
 export const getContributions = (login) => async (dispatch) => {
   const headers = {
-    'Authorization': `bearer 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`,
+    'Authorization': apiToken,
   }
 
   const body = {
@@ -36,9 +37,9 @@ export const getContributions = (login) => async (dispatch) => {
   }
 
   const response = await fetch('https://api.github.com/graphql', { method: 'POST', body: JSON.stringify(body), headers: headers })
-  const data = await response.json()
+  const dataFromApi = await response.json()
   try {
-    const contributions = data.data.user.contributionsCollection.contributionCalendar.weeks.map((el) => el.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
+    const contributions = dataFromApi.data.user.contributionsCollection.contributionCalendar.weeks.map((el) => el.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
     dispatch(setContributions(contributions))
   } catch (error) {
     console.log('error');

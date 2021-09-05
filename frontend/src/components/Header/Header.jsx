@@ -1,13 +1,8 @@
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeUser } from '../../redux/actionCreators/userAC';
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavbarText
-} from 'reactstrap';
+import { Navbar, Nav } from 'react-bootstrap'
 import { useHistory, Link } from 'react-router-dom';
+import { removeUser } from '../../redux/actionCreators/userAC';
 
 function Header() {
   const user = useSelector((state) => state.user);
@@ -22,39 +17,47 @@ function Header() {
     HomeButton()
   }
 
-  useEffect(()=> {
-    if(user.id) {
+  useEffect(() => {
+    if (user.id) {
     }
-  },[user]);
+  }, [user]);
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <Nav className="mr-auto" navbar>
-          <NavItem>
-            <Link to="/">Home</Link>
-          </NavItem>
-
-          {user.name ? (
-            <div>
-              <Link to="/" onClick={handlerLogout}>
-                Logout
-              </Link>
-              <NavbarText>{`Hello, ${user.name}!`}</NavbarText>
-            </div>
-          ) : (
-            <div>
-              <NavItem>
-                <Link to="/registration">Sign Up</Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/login">Sign In</Link>
-              </NavItem>
-            </div>
-          )}
+    <Navbar bg="dark" variant={"dark"} expand="lg">
+      <Navbar.Brand className='ml-3'>GitHub</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Collapse id="navbarScroll">
+        <Nav
+          className="my-2 my-lg-0"
+          style={{ maxHeight: '100px' }}
+          navbarScroll>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
         </Nav>
-      </Navbar>
-    </div>
+
+        <Navbar.Collapse
+          style={{ maxHeight: '100px' }}
+          className="justify-content-end">
+          {user.name ? (
+            <Nav
+              className="my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll>
+              <Navbar.Text>{`Hello, ${user.name}!`}</Navbar.Text>
+              <Nav.Link as={Link} to="/" onClick={handlerLogout}>Logout</Nav.Link>
+            </Nav>
+          ) : (
+            <Nav
+              className="my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll>
+              <Nav.Link as={Link} to="/login">Sign In</Nav.Link>
+              <Nav.Link as={Link} to="/registration">Sign Up</Nav.Link>
+            </Nav>
+          )
+          }
+        </Navbar.Collapse>
+      </Navbar.Collapse>
+    </Navbar >
   );
 }
 

@@ -10,6 +10,5 @@ export function setReadme(value) {
 
 export const getReadme = (login, repository) => async (dispatch) => {
   const readme = await axios.get(`https://api.github.com/repos/${login}/${repository}/readme`);
-  console.log(readme.data);
-  dispatch(setReadme(readme.data))   
+  dispatch(setReadme(readme.data))
 }

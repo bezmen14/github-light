@@ -6,14 +6,9 @@ import RepoItem from "../RepoItem/RepoItem";
 
 function Repos() {
 
-  const { login } = useParams();
-  console.log(login);
-
-  const profileRepos = useSelector(state => state.repos);
-  console.log(profileRepos);
-
-
   const dispatch = useDispatch()
+  const { login } = useParams();
+  const profileRepos = useSelector(state => state.repos);
 
   useEffect(() => {
     dispatch(getProfileRepos(login))
@@ -23,23 +18,21 @@ function Repos() {
 
     <div className='row'>
       <div className='col-12 '>
-      <div className="accordion w-100"  id="accordionExample">
-        {profileRepos.map(el =>
-          <RepoItem
-            key={el.id}
-            id={el.id}
-            name={el.name}
-            url={el.html_url}
-            description={el.description}
-            language={el.language}
-            updated_at={el.updated_at}>
-          </RepoItem>
-        )}
+        <div className="accordion w-100" id="accordionExample">
+          {profileRepos.map(el =>
+            <RepoItem
+              key={el.id}
+              id={el.id}
+              name={el.name}
+              url={el.html_url}
+              description={el.description}
+              language={el.language}
+              updated_at={el.updated_at}>
+            </RepoItem>
+          )}
+        </div>
       </div>
-      </div>
-
     </div>
-
   )
 }
 

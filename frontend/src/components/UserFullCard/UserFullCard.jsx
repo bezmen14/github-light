@@ -3,17 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { getProfile } from "../../redux/actionCreators/profileAC";
 import { useDispatch, useSelector } from "react-redux";
 import Repos from "../Repos/Repos";
-import Contributions from "../Contributions/Contributions";
 import { getContributions } from "../../redux/actionCreators/contributionsAC";
-import { NavItem } from "reactstrap";
 
 function UserFullCard() {
   const { login } = useParams();
-
-
   const profileCard = useSelector(state => state.profile);
-
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,7 +17,6 @@ function UserFullCard() {
 
   return (
     <React.Fragment>
-
       <div className='d-flex justify-content-center'>
         <div className='row mt-3'>
           <div className='col-6'>
@@ -78,25 +71,21 @@ function UserFullCard() {
                 <p>{profileCard.bio}</p>
               </React.Fragment>
             )}
+            <a className="btn btn-success my-2 w-75">
+              <Link style={{ textDecoration: 'none', color: 'white' }} to={`/profile/${profileCard.login}/contributions`}>Contributions</Link>
+            </a>
             <a target='_blank' href={profileCard.html_url} className='btn btn-dark my-1 w-75'>
               Visit GitHub Profile
-            </a>
-            <a style={{ color: 'white' }} className="btn btn-danger my-2 w-75">
-              <Link to={`/profile/${profileCard.login}/contributions`}>Contributions</Link>
             </a>
           </div>
         </div>
       </div>
       <div className='d-flex justify-content-center mt-3'>
         <div className='w-50'>
-            <Repos />
+          <Repos />
         </div>
-
       </div>
-
     </React.Fragment>
-
-
   )
 }
 

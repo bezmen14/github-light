@@ -7,18 +7,14 @@ const logger = require('morgan');
 
 const authRouter = require('./routes/auth.router');
 
-const {PORT} = process.env || '3001';
+const { PORT } = process.env || '3001';
 const app = express();
 dbConnect();
 
-app.set('views', path.join(__dirname, 'views'));
-
-   
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/auth', authRouter);
 

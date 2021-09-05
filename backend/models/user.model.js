@@ -17,9 +17,6 @@ const userSchema = new Schema({
     required: true,
     min: 3,
   },
-  githubLogin: {
-    type: String,
-  },
 });
 
 const UserModel = model('Users', userSchema);

@@ -13,7 +13,6 @@ export const removeUser = () => {
   }
 }
 
-
 export const getFormUserData = (name, email, password) => async (dispatch) => {
   const response = await fetch('http://localhost:3001/api/v1/auth/registration', {
     method: 'POST',
@@ -28,8 +27,6 @@ export const getFormUserData = (name, email, password) => async (dispatch) => {
     })
   })
   const data = await response.json()
-  console.log(data);
-
   dispatch(setUser(data))
 }
 

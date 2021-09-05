@@ -1,11 +1,10 @@
 import React from 'react';
 import UserList from '../UserList/UserList';
 
-
 function Main () {
 
   return(
-    <UserList/>
+      <UserList/>
   )
 }
 export default Main;
