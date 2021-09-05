@@ -12,9 +12,8 @@ function RepoItem({ id, name, url, description, language, updated_at }) {
   const getRepoName = () => {
     dispatch(getReadme(login, name))
   }
-
+  
   return (
-
     <Accordion>
       <Accordion.Item eventKey="1">
         <Accordion.Header onClick={getRepoName}>{name}</Accordion.Header>

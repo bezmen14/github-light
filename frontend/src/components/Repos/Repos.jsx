@@ -15,7 +15,6 @@ function Repos() {
   }, [])
 
   return (
-
     <div className='row'>
       <div className='col-12 '>
         <div className="accordion w-100" id="accordionExample">

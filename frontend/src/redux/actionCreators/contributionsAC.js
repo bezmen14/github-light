@@ -7,7 +7,8 @@ export function setContributions(value) {
   }
 }
 
-// const apiToken = 'bearer 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'
+const apiToken = 'bearer '
+
 export const getContributions = (login) => async (dispatch) => {
   const headers = {
     'Authorization': apiToken,

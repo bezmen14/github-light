@@ -30,7 +30,6 @@ export const getFormUserData = (name, email, password) => async (dispatch) => {
   dispatch(setUser(data))
 }
 
-
 export const getFormUserDataAuth = (email, password) => async (dispatch) => {
   const response = await fetch('http://localhost:3001/api/v1/auth/login', {
     method: 'POST',

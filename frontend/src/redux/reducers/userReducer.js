@@ -1,6 +1,5 @@
 import { SET_USER, REMOVE_USER } from "../types/userTypes";
 
-
 const userReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_USER:
@@ -10,12 +9,10 @@ const userReducer = (state = {}, action) => {
           ...action.payload.user,
         }
       }
-      
+
     case REMOVE_USER:
       localStorage.removeItem('name');
-      return {
-
-      }
+      return {}
 
     default:
       return state

@@ -6,7 +6,7 @@ import UserListCard from '../UserListCard/UserListCard';
 function UserList() {
   const dispatch = useDispatch()
   const userList = useSelector(state => state.githubUsers);
-  
+
   const changeHandler = (e) => {
     e.preventDefault();
     dispatch(getRandomGithubUsers());

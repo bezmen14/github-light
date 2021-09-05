@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,7 +9,6 @@ import Header from './components/Header/Header';
 import SignUp from './components/SignUp/SignUp';
 import Main from './components/Main/Main';
 import SignIn from './components/SignIn/SignIn'
-import React from 'react';
 import UserFullCard from './components/UserFullCard/UserFullCard'
 import Contributions from './components/Contributions/Contributions';
 

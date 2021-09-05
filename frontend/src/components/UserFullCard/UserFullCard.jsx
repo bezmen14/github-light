@@ -47,7 +47,7 @@ function UserFullCard() {
                 <li className="list-group-item">
                   {profileCard.blog && (
                     <React.Fragment>
-                      <strong>Website:</strong> {profileCard.blog}
+                      <strong>Website:</strong> <a href={profileCard.blog}></a>{profileCard.blog}
                     </React.Fragment>
                   )}
                 </li>

@@ -37,12 +37,12 @@ function Header() {
         <Navbar.Collapse
           style={{ maxHeight: '100px' }}
           className="justify-content-end">
-          {user.name ? (
+          {user.name || localStorage.name ? (
             <Nav
               className="my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll>
-              <Navbar.Text>{`Hello, ${user.name}!`}</Navbar.Text>
+              <Navbar.Text>{`Hello, ${user.name || localStorage.name}!`}</Navbar.Text>
               <Nav.Link as={Link} to="/" onClick={handlerLogout}>Logout</Nav.Link>
             </Nav>
           ) : (

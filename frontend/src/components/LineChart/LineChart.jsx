@@ -16,7 +16,7 @@ function LineChart() {
       data={{
         labels: foo,
         datasets: [{
-          label: 'User contributions',
+          label: 'contributions/weeks',
           data: contributions,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -34,13 +34,13 @@ function LineChart() {
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
           ],
-          borderWidth: 3
-        }]
+          borderWidth: 3,
+        }],
       }}
       height={400}
       width={600}
       options={{
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       }}
     />
   )
